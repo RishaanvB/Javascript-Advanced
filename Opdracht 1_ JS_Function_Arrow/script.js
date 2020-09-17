@@ -69,6 +69,7 @@ console.log(addFive(2));
   (dus op 1 regel) die een simpel object returned: {greeting: "hoi"}
  */
 
-const createObject = () => 'greeting: "hoi"';
+const createObject = () => ({greeting: "hoi"});
 
 console.log(createObject());
+console.log(typeof(createObject()));
