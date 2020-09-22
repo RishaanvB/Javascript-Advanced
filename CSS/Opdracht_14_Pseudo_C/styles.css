@@ -1,0 +1,33 @@
+body, html{
+    font-weight: bold;
+    height: 100%;
+    width: 100%;
+}
+
+.boxes{
+    display: flex;
+    justify-content: space-around;
+   
+    
+}
+
+ul,li{
+    background:slategrey;
+    width: 12em;
+    text-align: center;
+    list-style-type: none;
+    padding: 0;
+    line-height: 2;
+}
+.one li:first-child{
+    background-color: lightsteelblue;
+}
+
+.two ul:nth-child(2)  li:nth-child(3){
+    background-color: lightsteelblue;
+}
+
+.three ul:nth-child(odd) li:nth-child(1), .three ul:nth-child(odd) li:nth-child(2), .three ul:nth-child(odd) li:nth-child(3){
+    background-color: lightsteelblue;
+/*not(:last-child)*/
+}

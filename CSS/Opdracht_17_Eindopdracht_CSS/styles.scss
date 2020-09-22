@@ -1,0 +1,196 @@
+$footer-text-color: white;
+$header-text-color: rgb(117, 117, 117);
+$card-top-radius: 25px;
+
+.site-container {
+  /*Ik heb in dit geval body, html en section dezelfde class gegeven, omdat ze in  dit geval allemaal dezelfde height hebben en die in dit geval niet worden veranderd. Anders hadden ze verschillende classes gekregen*/
+  background-color: #c3cfe2;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif; /*Geen flauw idee welk font wordt gebruikt..*/
+  font-size: 14px;
+  margin: 0;
+  height: 100%;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+}
+
+// CARD Opdracht BEGIN
+
+.card {
+  width: 440px;
+  height: 560px;
+  margin: 50px auto;
+  box-sizing: border-box;
+  border-top-left-radius: $card-top-radius;
+  border-top-right-radius: $card-top-radius;
+  border-bottom-left-radius: $card-top-radius;
+  border-bottom-right-radius: $card-top-radius;
+  background-color: white;
+  box-shadow: 1px 15px 20px grey;
+
+  &__header {
+    height: 65%;
+  }
+
+  &__img {
+    background-image: url("./images/what-your-favorite-stock-photo-spaghetti-person-s-2-7471-1432142821-2_dblbig.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    top: -70px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 130px;
+    height: 130px;
+    border: 5px solid white;
+    border-radius: 100%;
+  }
+
+  &__text {
+    color: $header-text-color;
+    padding: 50px 40px;
+  }
+
+  &__name {
+    text-transform: uppercase;
+    color: $footer-text-color;
+    text-align: center;
+    position: relative;
+    top: 25px;
+  }
+  &__site {
+    @extend .card__name;
+    font-size: 0.8rem;
+    opacity: 50%;
+    position: relative;
+    top: 15px;
+  }
+
+  &__footer {
+    background-color: #686de0;
+    padding: 50px 40px;
+    border-bottom-left-radius: $card-top-radius;
+    border-bottom-right-radius: $card-top-radius;
+  }
+}
+// CARD Opdracht EINDE
+
+// GRID RESPONSIVe Opdracht START
+
+.flex-grid {
+  box-sizing: border-box;
+  width: 80%;
+  display: grid;
+  grid-auto-rows: 300px;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-gap: 5px;
+  margin: 0 auto;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+
+  &__button {
+    position: relative;
+    left: 40%;
+    bottom: 50%;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 750ms;
+    width: max-content;
+    /* ^^ toegevoegd om te voorkomen dat de hover buiten de img aan de rechterkant werd geactiveerd */
+  }
+  &:hover .container__img--hover {
+    opacity: 0.1;
+  }
+  &:hover .container__button--hover {
+    opacity: 1;
+  }
+
+  &__img {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition-property: opacity;
+    transition-duration: 750ms;
+  }
+}
+@media (max-width: 800px) {
+  .flex-grid {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  /* Heb de max-width iets groter gemaakt anders werden de fotos te small */
+  .flex-grid {
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+  }
+}
+
+// GRID RESPONSIVe Opdracht Einde
+
+// BEGIN OPDRACHT 3 MEDIA BUTTONS
+
+// Note: Ik kreeg het niet voor elkaar door een transition: width toe te
+// te passen aan de social media balkjes, ik kreeg dan de tekst niet 'offsccreen'
+// De <p> tekst werd dan op een nieuwe rij verschoven en ik kreeg het niet opgelost
+// met overflow:hidden.
+// Het is wel gelukt door het balkje meteen offscreen te plaatsen en dan volledig
+// naar links te schuiven met translate(x), maar deze oplossing voelt erg  'hacky'
+// en is ook niet bestand tegen veranderingen in de tekst van de balkjes.
+
+.nav-media {
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+
+  &__icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 270px;
+    height: 50px;
+    transform: translateX(200px);
+    transition: transform 200ms ease-in 0ms;
+  }
+  &__text {
+    margin-right: 100px;
+  }
+
+  &--color-blog {
+    background-color: #e17b77;
+  }
+
+  &--color-twitter {
+    background-color: #00aced;
+  }
+
+  &--color-facebook {
+    background-color: #3b5998;
+  }
+
+  &--color-github {
+    background-color: #333;
+  }
+
+  &--color-linkedin {
+    background-color: #007bb6;
+  }
+
+  &--slide:hover {
+    transform: translateX(100px);
+  }
+}
+
+// EINDE OPDRACHT 3 MEDIA BUTTONS

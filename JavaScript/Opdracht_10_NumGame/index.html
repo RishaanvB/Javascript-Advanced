@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Number Game</title>
+</head>
+
+<html>
+
+<body>
+    <script>
+        let numAnswer = Math.floor(Math.random() * 25 + 1)
+        console.log(numAnswer, '<--------Het antwoord')
+
+        name = prompt('Welcome stranger. What is your name?')
+        alert('Hey ' +    name + '. Let`s play a game..');
+
+        let numInput;
+
+        /*    while (numInput !== numAnswer) {
+                numInput = parseInt(prompt('Which number am I thinking of? It`s a number between 0 and 25'))
+                if (numInput > numAnswer) {
+                    alert('Oops, aim lower!');
+                } else if (numInput < numAnswer) {
+                    alert('Oops, aim higher');
+                } else {
+                    alert('You are correct');
+                    alert('Thanks for playing');
+                    alert('Goodbye ' + name);
+    
+                }
+            }
+    /*/
+
+
+
+        for (i = 1; numInput !== numAnswer; i++) {
+            if (i > 5) {
+                alert('You have zero attempts left. GAME OVER');
+                break;
+            }
+
+            numInput = parseInt(prompt('Which number am I thinking of? It`s a number between 0 and 25'))
+            console.log(i, 'nth attempt');
+
+            attempts = 5;
+
+
+            if (numInput > numAnswer) {
+                alert('Oops, aim lower!');
+                alert(attempts - i + ' attempts left');
+            } else if (numInput < numAnswer) {
+                alert('Oops, aim higher');
+                alert(attempts - i + ' attempts left');
+
+            }
+            else {
+                alert('You are correct');
+                alert('Thanks for playing');
+                alert('Goodbye ' + name);
+            }
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

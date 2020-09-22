@@ -1,0 +1,241 @@
+
+
+body, html{
+
+   background-color: rgb(255, 255, 255);
+    font-size: 1.2em;
+    color: #52575d;
+}
+
+body{
+    background-color:rgb(253, 252, 247);
+}
+.site-container{
+    
+    display: grid;
+    grid-template-areas: 
+    " h h h h h "
+    " h h h h h "
+    " n n n n n "
+    " m m m m m "
+    " m m m m m "
+    " f f f f f "
+    " f f f f f ";
+}
+
+.header-container{
+    width: 100%;
+    height: 100px;
+    background-image: url("/Winc_Opdrachten/Opdracht_10_Hackathon/images/cracked_egg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 200px auto;
+    grid-area: h;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+.leftside-icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 72%;
+    width: 75px;
+    margin-right: auto;
+   
+}
+
+.rightside-icons{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 72%;
+    width: 75px;
+}
+
+.logo-container{
+   margin-right: auto;
+}
+
+.logo-title{
+    margin-bottom: -0.5px;
+    font-weight: bolder;
+}
+
+.logo-subtitle{
+    text-align: center;
+    font-size: 0.9rem;
+    padding-bottom: 0.2em ;
+    margin: 0;
+}
+
+.main-navbar{
+    grid-area: n;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    border: 0.1px solid rgb(151, 149, 149);
+    
+    
+   
+}
+
+.navlinks{
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    font-weight: bold;
+    margin: 2px; 
+    padding: 0;
+}
+
+
+li > a{
+    text-decoration: none;
+    color: #52575d;
+    font-size: 0.8em;
+}
+
+li > a:hover{
+    color: #fddb3a;
+
+}
+.main-container{
+    grid-area: m;
+    text-align: center;
+  
+}
+
+.main-img-container{
+   background-image: url("/Winc_Opdrachten/Opdracht_10_Hackathon/images/main_pic.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+   width: 100%;
+   height: 100px; 
+}
+
+.main-container h2{
+    font-size: 3rem;
+}
+
+.hr{
+    border: 0.3px dashed #74726e;
+    width: 50%;
+    margin: 5px auto;
+    border-width: 0.4px;
+}
+
+
+.joke{
+    text-align: center;
+}
+
+.joke-title{
+    margin: 0;
+    padding-bottom: 5px;
+    text-decoration: underline;
+}
+
+.joke-subtext{
+    padding-bottom: 1px;
+}
+
+
+
+
+.footer-container{
+    height: 100px;
+    width: 100%;
+    grid-area: f;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+  
+   
+    background-image: url("/Winc_Opdrachten/Opdracht_10_Hackathon/images/pexels-footer.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+   
+    
+}
+.footer-container ul {
+    margin: 0 ;
+    margin-left:3px;
+    padding: 0;    
+    list-style-type: none;
+    font-size: 0.6rem;
+    line-height: 1rem;
+    width: max-content;
+}
+
+.footer-container ul li{
+width: max-content;
+}
+
+.footer-container ul :hover{
+    color: rgb(2, 2, 27);
+  
+}
+
+.phone{
+    height: 50px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.email{
+    font-size: 1rem;
+    height: 50px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.emailbox{
+    font-size: 1em;
+    margin: 0 20px;
+    
+}
+
+
+.copy{
+    margin: 0 auto;
+   font-size: 0.7rem;
+}
+
+@media  (min-width: 600px ) {
+    body, html {
+      margin: 0 auto;
+      font-size: 1.1em;
+    }
+  }
+
+  @media  (min-width: 1000px ) {
+    body, html {
+      margin: 0 auto;
+      font-size: 1.1em;
+      width: 90%;
+    }
+
+    .main-img-container{
+        height: 200px;
+    }
+
+    
+    .navlinks{
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
+        font-weight: bold;
+        margin: 2px; 
+        padding: 0;
+    }
+  }
+

@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  font-family: "Mogra", cursive;
+  text-align: center;
+  color: #111;
+}
+body {
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(179, 179, 179);
+}
+
+.menu-clickable {
+  position: relative;
+  z-index: 2;
+  padding: 10px;
+  width: 500px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  border: 2px solid black;
+  background-color: rgb(238, 238, 238);
+}
+p {
+  margin-right: 10px;
+}
+
+li {
+  list-style-type: none;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+.menu-icon {
+  margin-right: 95px;
+}
+
+.menu-icon:hover {
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.color-list-container {
+  width: 500px;
+}
+.color-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.color-red {
+  background-color: rgb(211, 34, 34);
+  transform: translateY(-40px);
+  position: relative;
+  z-index: 1;
+  transition-property: transform; /* <----Deze  2 regels in elke .color-'colorname' */
+  transition-duration: 500ms; /* <----zorgen wss voor problemen als de pagina te snel wordt geladen */
+} /* Zie je wss de elementen naar boven schuiven. Wist niet hoe ik dat op  */
+/* een andere manier kon oplossen. */
+
+.color-white {
+  background-color: rgb(231, 229, 229);
+  transform: translateY(-80px);
+  position: relative;
+  z-index: 1;
+  transition-property: transform;
+  transition-duration: 500ms;
+}
+.color-blue {
+  background-color: rgb(55, 55, 199);
+  transform: translateY(-120px);
+  position: relative;
+  z-index: 1;
+  transition-property: transform;
+  transition-duration: 500ms;
+}
+.color-orange {
+  background-color: rgb(211, 157, 58);
+  transform: translateY(-160px);
+  position: relative;
+  z-index: 1;
+  transition-property: transform;
+  transition-duration: 500ms;
+}
+
+.colorbar-transition {
+  transition-property: transform;
+  transition-duration: 500ms;
+  transform: translateY(0);
+}
+
+.color-list li:hover {
+  opacity: 80%;
+}
+/* Changing background color  */
+
+.background-red {
+  background-color: rgb(211, 34, 34);
+  transition: background-color, 1000ms;
+}
+.background-white {
+  background-color: rgb(231, 229, 229);
+  transition: background-color, 1000ms;
+}
+.background-blue {
+  background-color: rgb(55, 55, 199);
+  transition: background-color, 1000ms;
+}
+.background-orange {
+  background-color: rgb(211, 157, 58);
+  transition: background-color, 1000ms;
+}
+
+#background-info {
+  margin-top: 200px;
+}

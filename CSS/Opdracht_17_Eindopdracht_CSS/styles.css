@@ -1,0 +1,218 @@
+.site-container {
+  /*Ik heb in dit geval body, html en section dezelfde class gegeven, omdat ze in  dit geval allemaal dezelfde height hebben en die in dit geval niet worden veranderd. Anders hadden ze verschillende classes gekregen*/
+  background-color: #c3cfe2;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  /*Geen flauw idee welk font wordt gebruikt..*/
+  font-size: 14px;
+  margin: 0;
+  height: 100%;
+}
+
+.nav-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.card {
+  width: 440px;
+  height: 560px;
+  margin: 50px auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background-color: white;
+  -webkit-box-shadow: 1px 15px 20px grey;
+          box-shadow: 1px 15px 20px grey;
+}
+
+.card__header {
+  height: 65%;
+}
+
+.card__img {
+  background-image: url("./images/what-your-favorite-stock-photo-spaghetti-person-s-2-7471-1432142821-2_dblbig.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  top: -70px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 130px;
+  height: 130px;
+  border: 5px solid white;
+  border-radius: 100%;
+}
+
+.card__text {
+  color: #757575;
+  padding: 50px 40px;
+}
+
+.card__name, .card__site {
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  position: relative;
+  top: 25px;
+}
+
+.card__site {
+  font-size: 0.8rem;
+  opacity: 50%;
+  position: relative;
+  top: 15px;
+}
+
+.card__footer {
+  background-color: #686de0;
+  padding: 50px 40px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.flex-grid {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 80%;
+  display: -ms-grid;
+  display: grid;
+  grid-auto-rows: 300px;
+  -ms-grid-columns: (minmax(200px, 1fr))[3];
+      grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-gap: 5px;
+  margin: 0 auto;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.container__button {
+  position: relative;
+  left: 40%;
+  bottom: 50%;
+  opacity: 0;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 750ms;
+          transition-duration: 750ms;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  /* ^^ toegevoegd om te voorkomen dat de hover buiten de img aan de rechterkant werd geactiveerd */
+}
+
+.container:hover .container__img--hover {
+  opacity: 0.1;
+}
+
+.container:hover .container__button--hover {
+  opacity: 1;
+}
+
+.container__img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 750ms;
+          transition-duration: 750ms;
+}
+
+@media (max-width: 800px) {
+  .flex-grid {
+    -ms-grid-columns: (minmax(200px, 1fr))[2];
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  /* Heb de max-width iets groter gemaakt anders werden de fotos te small */
+  .flex-grid {
+    -ms-grid-columns: (minmax(200px, 1fr))[1];
+        grid-template-columns: repeat(1, minmax(200px, 1fr));
+  }
+}
+
+.nav-media {
+  height: 100%;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  overflow: hidden;
+}
+
+.nav-media__icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 270px;
+  height: 50px;
+  -webkit-transform: translateX(200px);
+          transform: translateX(200px);
+  -webkit-transition: -webkit-transform 200ms ease-in 0ms;
+  transition: -webkit-transform 200ms ease-in 0ms;
+  transition: transform 200ms ease-in 0ms;
+  transition: transform 200ms ease-in 0ms, -webkit-transform 200ms ease-in 0ms;
+}
+
+.nav-media__text {
+  margin-right: 100px;
+}
+
+.nav-media--color-blog {
+  background-color: #e17b77;
+}
+
+.nav-media--color-twitter {
+  background-color: #00aced;
+}
+
+.nav-media--color-facebook {
+  background-color: #3b5998;
+}
+
+.nav-media--color-github {
+  background-color: #333;
+}
+
+.nav-media--color-linkedin {
+  background-color: #007bb6;
+}
+
+.nav-media--slide:hover {
+  -webkit-transform: translateX(100px);
+          transform: translateX(100px);
+}
+/*# sourceMappingURL=styles.css.map */

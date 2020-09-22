@@ -1,0 +1,85 @@
+body{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+
+
+header{
+    border: 3px dashed  blue;
+    margin-bottom: 30px;
+    /*text-align: center;*/
+    word-spacing: 1em;
+    margin-right: 40px;
+   /* padding: 10px;                padding all sides
+    padding: 10px 5px;           padding vertical, horizontal sides
+    padding: 10px 5px 15px;     padding top, horizontal, bottom*/
+    padding: 10px 5px 15px 20px;     /*padding top, right, bottom, left*/
+
+}
+
+main{
+    border-right: 3px solid red;
+    border-left: 3px solid rgb(231, 221, 78);
+    border-bottom: 5px solid orange;
+    margin-bottom: 30px;
+    padding-left: 70px;
+    font-size: large;
+    margin-left: 40px;
+    
+}
+
+
+
+ul{
+    padding: 0;
+    text-align: center;
+    padding-right: 70px;
+    list-style-type: none;
+  
+}
+
+
+
+
+
+footer{
+    border: 10px inset rgb(202, 31, 131);
+   
+    /*text-align: center;*/
+    line-height: 4em;
+    width: 500px;
+    margin: 40px auto; /*0 margin voor top/bottom en auto voor left/right*/
+   padding: 5px 40px;
+
+}
+
+
+
+.navlink li {
+    display: inline;
+}
+
+@media screen and (max-width: 300px){
+    header{
+        font-size:70%;
+        color: red;
+    }
+    main{
+        padding:0;
+    }
+    footer{
+        width:200px;
+        margin:0 auto;
+        padding: 0;
+    }
+}
+@media screen and (min-width: 400px){
+    body{
+    background-color: rgb(240, 198, 182);
+    color: white;
+    font-size: small;
+    line-height:1.8em;
+}
+}

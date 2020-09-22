@@ -1,0 +1,50 @@
+
+.link1:hover{
+    font-weight: bold;
+    color: lightblue;
+}
+
+.link2:active{
+    color: red;
+    font-style: italic;
+}
+
+.link3:visited{
+    color: yellow;
+  
+}
+
+textarea:focus{
+    color: green;
+    font-size: 20px;;
+}
+
+nav{
+    background-color: darkblue;
+}
+nav ul{
+    display: flex;
+    border: 1px solid black;
+    justify-content: space-between;
+    padding: 0 ;
+
+}
+li{
+    list-style-type: none;
+   
+}
+.currentPage{
+    background-color: rgb(124, 174, 177)
+}
+a:hover{
+    background-color: lightblue;
+}
+input:focus{
+    border: 7px dashed aquamarine;
+    
+}
+
+
+a{
+    color: white;
+}

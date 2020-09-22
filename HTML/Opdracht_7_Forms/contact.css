@@ -1,0 +1,38 @@
+body{
+    background-color: lightblue;
+}
+
+label, input, textarea, footer{
+    display: block;
+    margin: 0 auto;
+    margin-top: 5px;
+    text-align: center;
+
+}
+footer{
+   
+    margin-top: 500px;
+}
+
+div > input{
+    display: inline;
+   
+  
+}
+div > label{
+    display: inline;
+   
+
+  
+}
+
+div{
+    
+    margin: 0 auto;
+    text-align: center;
+    margin: 20px 0px;
+    
+}
+p{
+    text-align: center;
+}

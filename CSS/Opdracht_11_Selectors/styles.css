@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
+    margin: 10px;
+}
+
+.container-notification{
+    display:grid;
+    grid-template-areas: 
+    "n n n"
+    "i i i";
+    flex-direction: column;
+    border-right: 2px solid rgb(216, 212, 212);
+    border-left: 2px solid rgb(216, 212, 212);
+    border-top: 2px solid rgb(216, 212, 212);
+    border-top-right-radius: 2%;
+    border-top-left-radius: 2%;
+    width: 340px;
+    height: 160px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.friend-name{
+    display: flex;
+    grid-area: n;
+    justify-content: space-between;
+    align-items: center;
+    height: 60%;
+   
+
+}
+.friend-name-info h2{
+    color: black;
+}
+h2:first-child{
+    color: black;
+}
+
+.friend-name-info h3{
+    color: grey;
+    opacity: 60%;
+    font-size: 1rem;
+}
+
+
+.friend-request-info{
+    grid-area: i;
+}
+
+.friend-request-info h3{
+    font-size: 0.9em;
+    color: rgb(121, 115, 115);
+    
+   
+}
+
+
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: b;
+    width: 340px;
+    height:60px;
+    border-right: 2px solid rgb(216, 212, 212);
+    border-left: 2px solid rgb(216, 212, 212);
+    border-bottom: 2px solid rgb(216, 212, 212);
+    border-top: 0.5px solid rgb(216, 212, 212);
+    border-bottom-right-radius: 2%;
+    border-bottom-left-radius: 2%;
+    box-sizing: border-box;
+    
+    
+}
+.buttons p{
+    
+  
+    margin: 10px;
+    padding: 6px 44px;
+    margin: 0 ;
+    
+    text-align: center;
+}
+[alt="friend"]{
+    width: 45px;
+    height: 45px;
+    padding-top: 10px;
+}
+
+p:first-child{
+    color: lightgreen;
+    font-weight: bolder;
+    border-top-left-radius: 6%;
+    border-bottom-left-radius: 6%;
+    border-left:2px solid lightgreen;
+    border-top:2px solid lightgreen;
+    border-bottom:2px solid lightgreen;
+}
+
+p:last-child{
+    color:rgba(250, 43, 43, 0.836);
+    font-weight: bolder;
+    border: 2px solid red;
+    border-top-right-radius: 6%;
+    border-bottom-right-radius: 6%;
+   
+    
+}
+
+span{
+    font-weight: 1000;
+    color: rgb(73, 73, 73);
+}
+
+main{
+    display:flex;
+    justify-content: center;
+    
+}
+.container-friend{
+    margin: 10px;
+}

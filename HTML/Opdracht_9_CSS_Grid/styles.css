@@ -1,0 +1,89 @@
+html, body{
+    height: 100%; /*height op 100% om scherm verticaal op te vullen */
+    width: 100%;
+    background-color: rgb(240, 156, 156);
+    margin: 0;
+  
+       
+    grid-template-areas: 
+    " h h h h "
+    " m m m m "
+    " m m m m "
+    " m m m m "
+    " m m m m "
+    " a a a a "
+    " f f f f ";
+
+   
+    
+    
+}
+
+    
+    
+  
+
+
+header{
+    background-color:  rgb(95, 204, 137);
+    grid-area: h;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    
+}
+
+main{
+    background-color: rgb(216, 240, 107);
+    grid-area: m;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+aside{
+    background-color: rgb(152, 89, 204);
+    grid-area: a;
+    display: flex;
+    align-items: center;
+}
+
+footer{
+    background-color: rgb(53, 96, 235);
+    grid-area: f;
+    display: flex;
+    align-items: center;
+}
+
+@media (min-width: 800px){ /*breedte komt wss niet overeen met standaard
+     gebruik. Was makkelijker om mee te werken in chrome dev tools met 
+     breder/smaller maken van scherm.
+    */
+
+    body{
+       
+        grid-template-areas: 
+        " h m m m "
+        " h m m m "
+        " h m m m "
+        " h m m m "
+        " h a a a "
+        " h a a a "
+        " h f f f ";
+    }
+}
+
+@media (min-width: 1200px){
+
+    body{
+       
+        grid-template-areas: 
+        " h m m a "
+        " h m m a "
+        " h m m a "
+        " h m m a "
+        " h m m a "
+        " h m m a "
+        " h f f a ";
+    }
+}
