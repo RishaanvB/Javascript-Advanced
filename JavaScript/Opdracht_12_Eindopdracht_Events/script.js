@@ -67,20 +67,28 @@ colorOrange.addEventListener("click", function () {
 
 // Kon niet vinden hoe je achter de toets kon komen die je intikt.
 
-//   window.addEventListener('keypress', function (){
-// 	  if (keypress == a){
-// 		change background
-// 	  }	else if(keycode == b){
-// 		  change background
-// 	  }	else {
-// 		  change background
-// 	  }
-//   })
+body.addEventListener("keydown", function (x) {
+   if ( x.keyCode === 69) {
+    body.classList.add("background-orange");
+  body.classList.remove("background-white");
+  body.classList.remove("background-blue");
+  body.classList.remove("background-red");
+  
+}});
+  
+  // werkt ook maar wss 'bad practice'
+  // body.onkeydown = function(x) {
+  //    if ( x.keyCode === 69) {
+  //     body.classList.add("background-orange");
+  //   body.classList.remove("background-white");
+  //   body.classList.remove("background-blue");
+  //   body.classList.remove("background-red");
+  // }};
+
 
 // mouse hover eventlisteners.
 
-/* 
-menu.addEventListener("mouseenter", function () {
+/* menu.addEventListener("mouseenter", function () {
   const colorRed = document.getElementById("color-red");
   const colorWhite = document.getElementById("color-white");
   const colorBlue = document.getElementById("color-blue");
@@ -102,6 +110,6 @@ menu.addEventListener("mouseleave", function () {
 	colorWhite.classList.toggle("colorbar-transition");
 	colorBlue.classList.toggle("colorbar-transition");
 	colorOrange.classList.toggle("colorbar-transition");
-  }); */
-
+  });
+ */
 //einde hover
