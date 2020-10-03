@@ -18,7 +18,7 @@ const addMoviesToDom = (array) => {
 };
 
 const newerThan2014 = movies.filter((movie) => movie.Year >= 2014);
-addMoviesToDom(newerThan2014); //shows all movies on pageload
+addMoviesToDom(movies); //shows all movies on pageload
 
 const filteredMovies = (search) =>
   movies.filter((movie) =>

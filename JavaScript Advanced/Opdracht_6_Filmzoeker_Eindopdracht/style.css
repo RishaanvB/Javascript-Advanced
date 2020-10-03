@@ -84,7 +84,7 @@ li > a > img:hover {
 .animation {
   animation-name: posters;
   animation-duration: 500ms;
-  animation-delay: 100ms;
+  animation-delay: 5ms;
 }
 
 @media (max-width: 1400px) {
