@@ -5,39 +5,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Document</title>
+  <title>Filmzoeker</title>
 
 
-  <script defer type="text/javascript" src="movies.js">
-  </script>
+  <script defer type="text/javascript" src="movies.js"></script>
   <script defer type="text/javascript" src="main.js"></script>
 
 </head>
 
-<button type="button"></button>
+
 
 <html>
 
 <body>
+
+    
   <header>
-    <hd1 class="site-name-title">Filmzoeker</h1>
+    <h1 class="site-name-title">Filmzoeker</h1>
+    <!-- Movie Filters -->
+    <!-- Movie Filters -->
+    <!-- Movie Filters -->
 
-      <nav class="nav-movie">
-        <div class="nav-movie__filter">
-          <!-- batman buttons -->
-          <!--princess buttons -->
-          <!-- avengers buttons -->
-          <!--xmen buttons -->
-        </div>
+    <nav class="nav-movie">
+      <div class="nav-movie__filter">
 
-        <div class="nav-movie__search-bar">
-          <!-- searchbar -->
-        </div>
-      </nav>
+        <label>
+          <input type="radio" id="xmen-btn" name="filter-btn" class="btn-name" value="x-men">xmen filter-btn</input>
+        </label>
+
+        <label>
+          <input type="radio" id="princess-btn" name="filter-btn" class="btn-name" value="princess">princess filter-btn</input>
+        </label>
+
+        <label>
+          <input type="radio" id="avengers-btn" name="filter-btn" class="btn-name" value="avengers">avengers filter-btn</input>
+        </label>
+
+        <label>
+          <input type="radio" id="batman-btn" name="filter-btn" class="btn-name" value="batman">batman filter-btn</input>
+        </label>
+
+        
+        <label>
+          <input type="radio" id="show-all-btn" name="filter-btn" class="btn-name" value="allmovies">show all</input>
+        </label>
+
+        <label>
+          <input type="radio" id="latest-btn" name="filter-btn" class="btn-name" value="latest">show latest</input>
+        </label>
+
+      </div>
+      <!-- Searchbar -->
+
+      <input type="search" id="movie-search-bar" class="nav-movie__search-bar"> </input>
+
+    </nav>
   </header>
+  
+  
+    <!-- Start Movie List -->
+    <!-- Start Movie List -->
+    <!-- Start Movie List -->
   <main>
     <div class="container-movies">
-      <ul id="movie-list" class="container-movies__list">
+      <ul id="list-of-movies" class="movie-list">
         <!-- movie 1 -->
         <!-- movie 2 -->
         <!-- movie 3 -->
@@ -45,9 +76,12 @@
       </ul>
     </div>
   </main>
+
+
   <footer>
     <!-- some extra info/not neccessary -->
   </footer>
+
 </body>
 
 </html>
