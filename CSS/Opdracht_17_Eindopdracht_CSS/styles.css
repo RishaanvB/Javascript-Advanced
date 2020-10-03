@@ -1,7 +1,8 @@
 .site-container {
   /*Ik heb in dit geval body, html en section dezelfde class gegeven, omdat ze in  dit geval allemaal dezelfde height hebben en die in dit geval niet worden veranderd. Anders hadden ze verschillende classes gekregen*/
   background-color: #c3cfe2;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+ "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   /*Geen flauw idee welk font wordt gebruikt..*/
   font-size: 14px;
   margin: 0;

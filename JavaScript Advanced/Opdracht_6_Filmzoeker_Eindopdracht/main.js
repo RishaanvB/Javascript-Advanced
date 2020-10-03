@@ -13,11 +13,12 @@ const addMoviesToDom = (array) => {
     newImg.setAttribute("src", movie.Poster);
     newAhref.setAttribute("href", imdbSite.concat(movie.imdbID));
     newAhref.setAttribute("target", "_blank");
+    newImg.classList.add("animation");
   });
 };
 
-addMoviesToDom(movies); //shows all movies on pageload
 const newerThan2014 = movies.filter((movie) => movie.Year >= 2014);
+addMoviesToDom(newerThan2014); //shows all movies on pageload
 
 const filteredMovies = (search) =>
   movies.filter((movie) =>
@@ -50,7 +51,7 @@ const getMovieBySearch = () => {
   addMoviesToDom(filteredMovies(searchValue));
 };
 
-searchBar.addEventListener("keypress", (event) => {
+searchBar.addEventListener("keydown", (event) => {
   if (event.keyCode === 13) {
     getMovieBySearch();
   }

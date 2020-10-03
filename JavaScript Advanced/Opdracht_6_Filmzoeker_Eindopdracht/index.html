@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Filmzoeker</title>
-
-
+  <title>WincFlex</title>
+  <script src="https://kit.fontawesome.com/49b8217457.js" crossorigin="anonymous"></script>
   <script defer type="text/javascript" src="movies.js"></script>
   <script defer type="text/javascript" src="main.js"></script>
+  <link rel="stylesheet" href="style.css" type:="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@800&display=swap" rel="stylesheet">
 
 </head>
 
@@ -19,69 +19,64 @@
 
 <body>
 
-    
+
   <header>
-    <h1 class="site-name-title">Filmzoeker</h1>
-    <!-- Movie Filters -->
-    <!-- Movie Filters -->
-    <!-- Movie Filters -->
+    <img class="logo" src="images/wincflex_med.png" alt="winc logo">
+
+    <input type="search" id="movie-search-bar" class="search-bar"> </input>
 
     <nav class="nav-movie">
-      <div class="nav-movie__filter">
+      <div class="nav-movie-filter">
+
 
         <label>
-          <input type="radio" id="xmen-btn" name="filter-btn" class="btn-name" value="x-men">xmen filter-btn</input>
+          <input type="radio" id="xmen-btn" name="filter-btn" class="btn-name" value="x-men">Show X-Men Movies</input>
         </label>
 
         <label>
-          <input type="radio" id="princess-btn" name="filter-btn" class="btn-name" value="princess">princess filter-btn</input>
+          <input type="radio" id="princess-btn" name="filter-btn" class="btn-name" value="princess">Show Princess Movies
+          </input>
         </label>
 
         <label>
-          <input type="radio" id="avengers-btn" name="filter-btn" class="btn-name" value="avengers">avengers filter-btn</input>
+          <input type="radio" id="avengers-btn" name="filter-btn" class="btn-name" value="avengers">Show Avengers Movies
+          </input>
         </label>
 
         <label>
-          <input type="radio" id="batman-btn" name="filter-btn" class="btn-name" value="batman">batman filter-btn</input>
-        </label>
-
-        
-        <label>
-          <input type="radio" id="show-all-btn" name="filter-btn" class="btn-name" value="allmovies">show all</input>
+          <input type="radio" id="batman-btn" name="filter-btn" class="btn-name" value="batman">Show Batman Movies
+          </input>
         </label>
 
         <label>
-          <input type="radio" id="latest-btn" name="filter-btn" class="btn-name" value="latest">show latest</input>
+          <input type="radio" id="show-all-btn" name="filter-btn" class="btn-name" value="allmovies">Show All
+          Movies</input>
         </label>
 
+        <label>
+          <input type="radio" id="latest-btn" name="filter-btn" class="btn-name" value="latest">Show Latest </input>
+        </label>
       </div>
-      <!-- Searchbar -->
 
-      <input type="search" id="movie-search-bar" class="nav-movie__search-bar"> </input>
+
 
     </nav>
   </header>
-  
-  
-    <!-- Start Movie List -->
-    <!-- Start Movie List -->
-    <!-- Start Movie List -->
+
+
   <main>
     <div class="container-movies">
       <ul id="list-of-movies" class="movie-list">
-        <!-- movie 1 -->
-        <!-- movie 2 -->
-        <!-- movie 3 -->
-        <!-- movie 4 -->
+
       </ul>
     </div>
   </main>
 
 
   <footer>
-    <!-- some extra info/not neccessary -->
+    <p class="info">WincFlex logo made with <a href="https://fontmeme.com/netflix-font/" class="font-meme"> Font
+        Meme</a></p>
   </footer>
-
 </body>
 
 </html>
