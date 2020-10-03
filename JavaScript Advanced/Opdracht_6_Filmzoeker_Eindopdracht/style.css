@@ -74,17 +74,18 @@ li > a > img:hover {
 
 @keyframes posters {
   from {
-    transform: translateY(-10px);
+    transform: scale(0.98);
   }
   to {
-    transform: translateY(0px);
+    transform: scale(1);
   }
 }
 
+
 .animation {
   animation-name: posters;
-  animation-duration: 500ms;
-  animation-delay: 5ms;
+  animation-duration: 750ms;
+  animation-delay: 2ms;
 }
 
 @media (max-width: 1400px) {
