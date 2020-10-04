@@ -13,21 +13,23 @@ const addMoviesToDom = (array) => {
     newImg.setAttribute("src", movie.Poster);
     newAhref.setAttribute("href", imdbSite.concat(movie.imdbID));
     newAhref.setAttribute("target", "_blank");
+    // newImg.classList.add("poster-display")
     newImg.classList.add("animation");
   });
 };
 
-const newerThan2014 = movies.filter((movie) => movie.Year >= 2014);
-addMoviesToDom(movies); //shows all movies on pageload
+//shows all movies on pageload
+addMoviesToDom(movies);
 
+//shows movies by filteredname
 const filteredMovies = (search) =>
   movies.filter((movie) =>
     movie.Title.toLowerCase().includes(search.toLowerCase())
   );
 
-//Button selector filter START
-filterBtn = document.querySelectorAll(".btn-name");
 // waarom maakt volgorde van else if statements hier uit???
+const newerThan2014 = movies.filter((movie) => movie.Year >= 2014);
+const filterBtn = document.querySelectorAll(".btn-name");
 filterBtn.forEach((button) => {
   button.addEventListener("change", (event) => {
     let filterName = event.target.value;
@@ -41,7 +43,21 @@ filterBtn.forEach((button) => {
     }
   });
 });
-//Button selector filter END
+
+//  load wait animation
+let disableAnimation = () => {
+  const loadAnimation = document.querySelector("#load-page");
+  loadAnimation.classList.remove("load-page");
+};
+
+filterBtn.forEach((button) => {
+  button.addEventListener("change", () => {
+    const loadAnimation = document.querySelector("#load-page");
+    loadAnimation.classList.add("load-page");
+    setTimeout(disableAnimation, 500);
+  });
+});
+//  load wait animation
 
 //Searchbar
 
@@ -53,6 +69,9 @@ const getMovieBySearch = () => {
 
 searchBar.addEventListener("keydown", (event) => {
   if (event.keyCode === 13) {
+    const loadAnimation = document.querySelector("#load-page");
+    loadAnimation.classList.add("load-page");
+    setTimeout(disableAnimation, 500);
     getMovieBySearch();
   }
 });
