@@ -44,7 +44,7 @@ filterBtn.forEach((button) => {
   });
 });
 
-//  load wait animation
+//  load wait animation werkt niet optimaal, vooral icm toetsenbord(pijlnavigatie)
 let disableAnimation = () => {
   const loadAnimation = document.querySelector("#load-page");
   loadAnimation.classList.remove("load-page");
