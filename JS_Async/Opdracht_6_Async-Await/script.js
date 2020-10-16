@@ -1,18 +1,10 @@
-// const processData = async function () {
-//   let fetchedData = await getData();
-//   console.log(fetchedData);
-
-// };
-
-// console.log(processData() );
-
-async function doSomethingWithData() {
+const processData = async () => {
   try {
-    const data = await getData();
-    console.log("here is your data to do something:", data);
+    let fetchedData = await getData();
+    console.log(fetchedData);
   } catch (error) {
     console.log(error);
   }
-}
+};
 
-doSomethingWithData();
+console.log(processData());
