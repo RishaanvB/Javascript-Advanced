@@ -30,8 +30,8 @@ setMoviesGenre();
 
 const setFaveMovie = async () => {
   let faveMovieData = await getFaveMovie();
-  // console.log(faveMovieData.movie_results);
-  // console.log(faveMovieData.movie_results[0].title);
+  console.log(faveMovieData.movie_results);
+  console.log(faveMovieData.movie_results[0].title);
   const newH1 = document.getElementById("favemovie");
   newH1.innerHTML = faveMovieData.movie_results[0].title;
 };
@@ -60,7 +60,7 @@ setTopRatedMovies();
 //opdracht 4
 const setTopRatedByGenre = async () => {
   const data = await getTopRatedbyGenre();
-  console.log(data);
+  // console.log(data);
   const topRatedyGenreList = document.getElementById("topratedbygenre");
   genreList = data.results.splice(0, 10);
 
@@ -72,3 +72,25 @@ const setTopRatedByGenre = async () => {
 };
 
 setTopRatedByGenre();
+
+// opdracht 5 rated by year 1975
+
+const setTopRatedbyYear = async () => {
+  const data = await getTopRatedbyYear();
+  console.log(data, "logt data");
+  const topRatedbyYear = document.getElementById("topratedbyyear")
+  yearList = data.results.splice(0, 10);
+
+  yearList.forEach(movie => {
+    const newLi = document.createElement("li");
+    topRatedbyYear.appendChild(newLi);
+    newLi.innerHTML = `Title: ${movie.title}, Score: ${movie.vote_average},   Releasedate: ${movie.release_date}`
+  });
+
+}
+
+setTopRatedbyYear();
+
+
+
+// Deel 2

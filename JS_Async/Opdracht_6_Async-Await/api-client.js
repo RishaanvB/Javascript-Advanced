@@ -47,9 +47,8 @@ const getTopRatedbyGenre = async () => {
 
 const getTopRatedbyYear = async () => {
   try {
-    const yearRelease = ;
-    const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=1&primary_release_year
-=1975    `;
+    const yearRelease = 1975;
+    const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=1&primary_release_year=${yearRelease}`;
     let response = await fetch(apiUrl, { method: "GET" });
     let data = await response.json();
     return data;
