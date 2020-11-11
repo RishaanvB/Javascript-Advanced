@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  color: #222222;
+  box-sizing: border-box;
+}
+/* font-family: 'Homemade Apple', cursive; */
+
+/* ==========needs to be removed======= */
+button{
+    padding: 20px;
+    background-color: rgb(99, 99, 156);
+}
+/* needs to be removed */
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background-image: url("./Notebloc_pexels-karolina-grabowska-4226805.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 0% 20%;
+}
+
+h1 {
+  font-family: "Amatic SC", cursive;
+  font-size: 4rem;
+  color: #222222;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-list {
+  margin: auto;
+  text-align: center;
+  width: auto;
+  height: auto;
+  background-color: rgb(155, 108, 108);
+  font-size: 2rem;
+}
+ul > div{
+    display: flex;
+    justify-content: center;
+}
+
+div > img{
+    height: 40px;
+    
+}
+div > img:hover{
+    cursor: pointer;
+}
+
