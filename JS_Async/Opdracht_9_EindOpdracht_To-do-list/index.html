@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-do-list | Eindopdracht</title>
     <script src="api-client.js"></script>
+    <script
+      src="https://kit.fontawesome.com/49b8217457.js"
+      crossorigin="anonymous"
+    ></script>
+
     <script defer src="script.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Homemade+Apple&display=swap"
@@ -15,15 +20,18 @@
   </head>
 
   <body>
+    <div id="load-page">
+      <i id="spinner" class="fa fa-spinner fa-spin fa-2x"></i>
+    </div>
+
     <div class="container">
-      <h1>To-Do List</h1>
+      <h1></h1>
 
       <div class="input-form">
         <input
           id="input-field"
           type="text"
-          placeholder="placeholder"
-            minlength="5"
+          minlength="5"
           maxlength="50"
           required
         />
@@ -31,13 +39,13 @@
       </div>
     </div>
 
-    <div>
-      <ul id="task-list" class="task-list">
-        List of tasks comes here
-      </ul>
+    <div class="task-container">
+      <ul id="task-list" class="task-list"></ul>
     </div>
 
-    <button id="remove-all-btn" type="button">Remove All</button>
+    <button class="remove-btn" id="remove-all-btn" type="button">
+      Remove All
+    </button>
 
     <footer>
       <a href="https://thenounproject.com/search/?q=trash&i=3595480">Trash</a>

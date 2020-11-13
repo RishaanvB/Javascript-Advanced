@@ -5,19 +5,21 @@ const apiUrl = `https://jsonbox.io/${boxID}/`
 
 const getData = async () => {
     try {
-        console.log("retreiving data");
+        showSpinner()
         let response = await fetch(apiUrl, { method: "GET" });
         let data = await response.json();
-        console.log("returning data");
+        hideSpinner()
         return data
     } catch (error) {
         console.log(error)
     }
 
+
 }
 
 const postData = async (newTask) => {
     try {
+        showSpinner()
         const data = { description: newTask, done: false };
         console.log(data, "data logged to api")
         let response = await fetch(apiUrl, {
@@ -29,6 +31,7 @@ const postData = async (newTask) => {
         })
         let result = await response.json()
         console.log(result);
+        hideSpinner()
 
     } catch (error) {
         console.log(error);
@@ -37,14 +40,33 @@ const postData = async (newTask) => {
 
 const removeData = async (postID) => {
     try {
-        console.log(`trying to remove post with ID ===>${postID} `);
-        console.log(`trying to access? ${apiUrl}${postID}`)
-
+        showSpinner()
         let response = await fetch(`${apiUrl}${postID}`, {
             method: "DELETE",
         })
         let result = await response.json()
         console.log(result);
+        hideSpinner()
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+const updateData = async (postID, task, status) => {
+    try {
+        showSpinner()
+        let response = await fetch(`${apiUrl}${postID}`,
+            {
+                method: "PUT",
+                body: JSON.stringify({ description: task, done: status, }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+        let result = await response.json()
+        console.log(result);
+        hideSpinner()
     } catch (error) {
         console.log(error);
     }
