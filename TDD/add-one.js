@@ -1,10 +1,14 @@
 const addOne = function (numbers) {
-    let newArray = []
-    numbers.forEach(num => {
-        newArray.push(num += 1)
-
-    });
-    return newArray
+    return numbers.map(number => number + 1);
 }
 
-module.exports = addOne;
+
+const getWordLengths = function (someWords) {
+    let wordLength = someWords.map(word => word.length)
+    return wordLength
+};
+
+module.exports = {
+    addOne: addOne,
+    getWordLengths: getWordLengths,
+};
