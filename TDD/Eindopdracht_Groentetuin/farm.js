@@ -1,5 +1,19 @@
-const getYieldForPlant = function (crop) {
-    return crop.yield
+const getYieldForPlant = (crop, factor) => {
+    if (factor === undefined) {
+        return crop.yield
+    } else {
+        let sunFactor = factor.sun
+        //   get crop factor
+        let cropFactor = crop.factors.sun[sunFactor]
+        //   calculate growthpercentage = yield * low/medium/high
+        // low = 100 + factor /100
+        console.log("logs cropfactorintensity--->", crop.factors.sun[sunFactor]);
+        let growthPercentage = (100 + cropFactor) / 100
+        console.log(growthPercentage);
+        let totalYield = crop.yield * growthPercentage
+        return totalYield
+
+    }
 }
 
 const getYieldForCrop = (crop) => {
@@ -68,3 +82,4 @@ module.exports = {
     getProfitForCrop: getProfitForCrop,
     getTotalProfit: getTotalProfit,
 }
+
