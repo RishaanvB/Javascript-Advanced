@@ -35,20 +35,20 @@ describe("getYieldForPlant", () => {
         expect(getYieldForPlant(corn)).toBe(30);
     });
 
-    test("Get yield for plant with external sun factors", () => {
-        const environmentFactors = {
-            sun: "low",
-        };
-        expect(getYieldForPlant(corn, environmentFactors)).toBe(15);
-    });
+    // test("Get yield for plant with external sun factors", () => {
+    //     const environmentFactors = {
+    //         sun: "low",
+    //     };
+    //     expect(getYieldForPlant(corn, environmentFactors)).toBe(15);
+    // });
 
-    test("Get yield for plant with external wind factors", () => {
-        const environmentFactors = {
-            wind: "high",
+    // test("Get yield for plant with external wind factors", () => {
+    //     const environmentFactors = {
+    //         wind: "high",
 
-        };
-        expect(getYieldForPlant(corn, environmentFactors)).toBe(60);
-    });
+    //     };
+    //     expect(getYieldForPlant(corn, environmentFactors)).toBe(60);
+    // });
     
     test("Get yield for plant with external sun/wind factors", () => {
         const environmentFactors = {

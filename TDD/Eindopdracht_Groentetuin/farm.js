@@ -2,16 +2,44 @@ const getYieldForPlant = (crop, factor) => {
     if (factor === undefined) {
         return crop.yield
     } else {
-        crop.forEach((crop)=>{
-            console.log(crop);
-        })
-        let extFactor = factor.sun
-        let cropFactor = crop.factors.sun[extFactor]
-        let growthPercentage = (100 + cropFactor) / 100
-        let totalYield = crop.yield * growthPercentage
-        return totalYield
+
+        // let exFactorArray = Object.entries(factor)
+
+        let cropArray = (Object.entries(crop));
+        console.log(cropArray[2]);
+        for (const [key, value] of Object.entries(factor)) {
+            console.log(key);
+            // console.log("logs exfactor array--->", exFactorArray);
+            // console.log("logs cropfactor array--->", crop.factors);
+            console.log("logs crop factors key", crop.factors[key][value]);
+
+        }
     }
 }
+// console.log("logs exFactor------------>>>", exFactorArray);
+// exFactorArray.forEach(factor=>{
+//     console.log(factor);
+// })
+
+// let cropFactorArray = [];
+// for (const [key, value] of Object.entries(crop)) {
+//     cropFactorArray.push(key, value);
+// }
+// console.log("logs cropFactor------------>>>", cropFactorArray);
+// console.log(cropFactorArray.factors[0]);
+
+
+
+
+
+
+// let extFactor = factor.sun
+// let cropFactor = crop.factors.sun[extFactor]
+// let growthPercentage = (100 + cropFactor) / 100
+// let totalYield = crop.yield * growthPercentage
+// return totalYield
+
+
 
 const getYieldForCrop = (crop) => {
     let plantYield = crop.crop.yield
