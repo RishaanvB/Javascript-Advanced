@@ -2,8 +2,11 @@ const getYieldForPlant = (crop, factor) => {
     if (factor === undefined) {
         return crop.yield
     } else {
-        let sunFactor = factor.sun
-        let cropFactor = crop.factors.sun[sunFactor]
+        crop.forEach((crop)=>{
+            console.log(crop);
+        })
+        let extFactor = factor.sun
+        let cropFactor = crop.factors.sun[extFactor]
         let growthPercentage = (100 + cropFactor) / 100
         let totalYield = crop.yield * growthPercentage
         return totalYield
