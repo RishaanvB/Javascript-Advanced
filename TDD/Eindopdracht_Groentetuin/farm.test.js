@@ -195,6 +195,43 @@ describe('getProfitForCrop ', () => {
         expect(getProfitForCrop(input)).toBe(10);
 
     });
+    test('Calculate profit for crop with external factors', () => {
+        // revenue  = getYieldForCrop * growthfactor = 90 *1.5(sun)*2(wind) = 270
+        // costs = seedCosts * numCrops = 5 * numCrops = 5 * 10 = 50
+        // profit = revenue -costs = 270-50= 220??? My math skills... :(
+        // growthfactor = totalyield/crop 
+        const corn = {
+            name: "corn",
+            yield: 3,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: 10,
+                    medium: 50,
+                    high: 100,
+                },
+            },
+            salePrice: 2,
+            seedCosts: 5,
+        };
+        const input = {
+            crop: corn,
+            numCrops: 10,
+        };
+        const environmentFactors = {
+            sun: "high", 
+            wind: "high", 
+
+        };
+        expect(getYieldForCrop(input, environmentFactors)).toBe(90);
+        // profit should be profit w/o exfactor * growthfactor??? 10*1.5*2 = 30??
+        expect(getProfitForCrop(input,environmentFactors)).toBe(220);
+
+    });
 });
 
 

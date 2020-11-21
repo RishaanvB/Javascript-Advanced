@@ -23,36 +23,23 @@ const getYieldForPlant = (crop, factor) => {
 
 
 const getYieldForCrop = (crop, factor) => {
+    let plantYield = crop.crop.yield
+    let cropAmount = crop.numCrops;
+    let totalYield = plantYield * cropAmount
     if (factor === undefined) {
-        console.log("factor is undefined");
-        let plantYield = crop.crop.yield
-        let cropAmount = crop.numCrops;
-        let totalYield = plantYield * cropAmount
-        // console.log("logs plantYield in if phase",totalYield);
-
+        // console.log("factor is undefined"); //<--Why is this logging multiple times?
         return totalYield
     }
     else {
-        // console.log("does this even work???,");
         let growthFactorArray = []
         // calculates growthfactor for each of the given external factors in factor parameter, puts in array
         for (const [key, value] of Object.entries(factor)) {
-            // console.log("logs external factor",key);
-            // console.log("logs external intenstity",value);
-
             growthFactorArray.push((crop.crop.factors[key][value] + 100) / 100)
         }
-        console.log("growthfactorarray----->", growthFactorArray);
         const reducer = (acc, val) => acc * val;
         // multiplies array of growthfactor and multiplies by plantYield
         growthFactor = growthFactorArray.reduce(reducer)
-        let plantYield = crop.crop.yield
-        let cropAmount = crop.numCrops
-        let totalYield = plantYield * cropAmount
-
-        console.log("logs plantYield in else phase", plantYield);
         let totalYieldforCrop = totalYield * growthFactor
-        console.log("logs totalYield in end of else phase", totalYield);
         return totalYieldforCrop
     }
 
