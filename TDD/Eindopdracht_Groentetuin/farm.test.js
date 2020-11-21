@@ -28,7 +28,10 @@ describe("getYieldForPlant", () => {
             },
         },
     };
-
+// low -50 and high = 100 with input 30 should be 30
+// is 30 * 0.5 * 1
+// 
+// 30*0.5*2
 
 
     test("Get yield for plant with no environment factors", () => {
@@ -52,11 +55,23 @@ describe("getYieldForPlant", () => {
     
     test("Get yield for plant with external sun/wind factors", () => {
         const environmentFactors = {
-            sun: "low",
+            sun: "high",
             wind: "high",
 
         };
-        expect(getYieldForPlant(corn, environmentFactors)).toBe(75);
+        const environmentFactors2 = {
+            sun: "low",
+            wind: "low",
+
+        };
+        const environmentFactors3 = {
+            sun: "medium",
+            wind: "low",
+
+        };
+        expect(getYieldForPlant(corn, environmentFactors)).toBe(90);
+        expect(getYieldForPlant(corn, environmentFactors2)).toBe(16.5);
+        expect(getYieldForPlant(corn, environmentFactors3)).toBe(33);
     });
 });
 
