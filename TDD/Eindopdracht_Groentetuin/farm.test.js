@@ -175,7 +175,7 @@ describe('getRevenueForCrop ', () => {
 
     });
     test('Calculate revenue for crop with external factors', () => {
-        // revenue  = salePrice * yield * growthfactor * numCrops = 2*3 *3 * 10 = 180
+        // revenue  = salePrice * totalyield *   numCrops = 2*3 *3 * 10 = 180
         // revenue is getRevenueForCrop * growthfactor
         const corn = {
             name: "corn",

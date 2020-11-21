@@ -68,13 +68,42 @@ const getCostsForCrop = (input) => {
 
 
 
-const getRevenueForCrop = (input,factor) => {
-    let salePrice = input.crop.salePrice
+const getRevenueForCrop = (input, factor) => {
     let plantYield = input.crop.yield
-    let cropAmount = input.numCrops
-    let totalYield = (plantYield * cropAmount)
-    let revenue = (salePrice * totalYield)
-    return revenue
+
+    if (factor === undefined) {
+        let salePrice = input.crop.salePrice
+        let cropAmount = input.numCrops
+        let totalYield = (plantYield * cropAmount)
+        let revenue = (salePrice * totalYield)
+        return revenue
+
+    }
+    else {
+        let growthFactorArray = []
+        // calculates growthfactor for each of the given external factors in factor parameter, puts in array
+        for (const [key, value] of Object.entries(factor)) {
+            growthFactorArray.push((input.crop.factors[key][value] + 100) / 100)
+        }
+        const reducer = (acc, val) => acc * val;
+        // multiplies array of growthfactor and multiplies by plantYield
+        growthFactor = growthFactorArray.reduce(reducer)
+        console.log("logs growthfactor--->", growthFactor);
+
+        console.log("logs plantYield with external factors",plantYield);
+        let salePrice = input.crop.salePrice
+        let cropAmount = input.numCrops
+        let totalYield = (plantYield * cropAmount * growthFactor)
+        console.log("logs totalYield with external factors",totalYield);
+
+        let revenue = (salePrice * totalYield)
+       
+        
+        return revenue
+        // return totalYieldforCrop
+    }
+
+
 
 }
 
