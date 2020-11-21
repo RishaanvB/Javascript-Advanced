@@ -68,7 +68,7 @@ const getCostsForCrop = (input) => {
 
 
 
-const getRevenueForCrop = (input) => {
+const getRevenueForCrop = (input,factor) => {
     let salePrice = input.crop.salePrice
     let plantYield = input.crop.yield
     let cropAmount = input.numCrops
@@ -78,7 +78,8 @@ const getRevenueForCrop = (input) => {
 
 }
 
-
+// external factors do NOT  affect getCostsforCrop
+// external factors DO affect getRevenueforCrop, so first update getRevenueForCrop???
 const getProfitForCrop = (input) => {
     let profit = getRevenueForCrop(input) - getCostsForCrop(input)
     return profit

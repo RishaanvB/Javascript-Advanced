@@ -174,6 +174,38 @@ describe('getRevenueForCrop ', () => {
         expect(getRevenueForCrop(input)).toBe(60);
 
     });
+    test('Calculate revenue for crop with external factors', () => {
+        // revenue  = salePrice * yield * growthfactor * numCrops = 2*3 *3 * 10 = 180
+        // revenue is getRevenueForCrop * growthfactor
+        const corn = {
+            name: "corn",
+            yield: 3,
+            salePrice: 2,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: 10,
+                    medium: 50,
+                    high: 100,
+                },
+            },
+        };
+        const input = {
+            crop: corn,
+            numCrops: 10,
+        };
+        const environmentFactors = {
+            sun: "high", 
+            wind: "high", 
+
+        };
+        expect(getRevenueForCrop(input, environmentFactors)).toBe(180);
+
+    });
 });
 
 describe('getProfitForCrop ', () => {
@@ -227,9 +259,11 @@ describe('getProfitForCrop ', () => {
             wind: "high", 
 
         };
+        expect(getYieldForCrop(input)).toBe(30);
         expect(getYieldForCrop(input, environmentFactors)).toBe(90);
         // profit should be profit w/o exfactor * growthfactor??? 10*1.5*2 = 30??
-        expect(getProfitForCrop(input,environmentFactors)).toBe(220);
+        expect(getProfitForCrop(input)).toBe(10);
+        expect(getProfitForCrop(input,environmentFactors)).toBe(10);
 
     });
 });
