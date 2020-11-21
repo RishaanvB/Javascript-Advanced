@@ -295,17 +295,11 @@ describe("getTotalProfit", () => {
             { crop: pumpkin, numCrops: 2 },
         ];
         expect(getProfitForCrop(crops[0])).toBe(5);
-
-        expect(getProfitForCrop(crops[1])).toBe(36);
+ expect(getProfitForCrop(crops[1])).toBe(36);
         expect(getTotalProfit({ crops })).toBe(41);
     });
 
     test("Calculate total profit with multiple crops AND with external factors", () => {
-
-
-
-
-
         const corn = {
             name: "corn",
             yield: 3,

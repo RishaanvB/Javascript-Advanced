@@ -109,14 +109,28 @@ const getProfitForCrop = (input, factor) => {
 
 // bereken de winst voor meerdere crops (zonder omgevingsfactoren): getTotalProfit
 
-const getTotalProfit = ({ crops }) => {
-    let newArray = []
-    crops.forEach(crop => {
-        newArray.push(getProfitForCrop(crop))
-    });
-    const reducer = (acc, val) => acc + val;
-    let totalYield = newArray.reduce(reducer)
-    return totalYield
+const getTotalProfit = ({ crops }, factor) => {
+    if (factor === undefined) {
+
+        let newArray = []
+        crops.forEach(crop => {
+            newArray.push(getProfitForCrop(crop))
+        });
+        const reducer = (acc, val) => acc + val;
+        let totalYield = newArray.reduce(reducer)
+        return totalYield
+
+    } else {
+        let newArray = []
+        crops.forEach(crop => {
+            newArray.push(getProfitForCrop(crop, factor))
+        });
+        const reducer = (acc, val) => acc + val;
+        let totalYield = newArray.reduce(reducer)
+        return totalYield
+
+    }
+
 }
 module.exports = {
     getYieldForPlant: getYieldForPlant,
