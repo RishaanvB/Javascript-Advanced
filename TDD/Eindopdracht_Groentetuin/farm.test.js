@@ -96,12 +96,12 @@ describe("getYieldForCrop", () => {
             },
         };
         const input = {
-            crop: corn, 
+            crop: corn,
             numCrops: 10,
         };
         const environmentFactors = {
-            sun: "high", 
-            wind: "high", 
+            sun: "high",
+            wind: "high",
 
         };
 
@@ -199,10 +199,11 @@ describe('getRevenueForCrop ', () => {
             numCrops: 10,
         };
         const environmentFactors = {
-            sun: "high", 
-            wind: "high", 
+            sun: "high",
+            wind: "high",
 
         };
+        expect(getRevenueForCrop(input)).toBe(60);
         expect(getRevenueForCrop(input, environmentFactors)).toBe(180);
 
     });
@@ -228,10 +229,9 @@ describe('getProfitForCrop ', () => {
 
     });
     test('Calculate profit for crop with external factors', () => {
-        // revenue  = getYieldForCrop * growthfactor = 90 *1.5(sun)*2(wind) = 270
+        // revenue  = salePrice * yield(with factor) * numCrops = 2 * 9 * 10 =180
         // costs = seedCosts * numCrops = 5 * numCrops = 5 * 10 = 50
-        // profit = revenue -costs = 270-50= 220??? My math skills... :(
-        // growthfactor = totalyield/crop 
+        // profit = revenue -costs = 180 -50 =130
         const corn = {
             name: "corn",
             yield: 3,
@@ -255,15 +255,12 @@ describe('getProfitForCrop ', () => {
             numCrops: 10,
         };
         const environmentFactors = {
-            sun: "high", 
-            wind: "high", 
+            sun: "high",
+            wind: "high",
 
         };
-        expect(getYieldForCrop(input)).toBe(30);
-        expect(getYieldForCrop(input, environmentFactors)).toBe(90);
-        // profit should be profit w/o exfactor * growthfactor??? 10*1.5*2 = 30??
-        expect(getProfitForCrop(input)).toBe(10);
-        expect(getProfitForCrop(input,environmentFactors)).toBe(10);
+        
+        expect(getProfitForCrop(input, environmentFactors)).toBe(130);
 
     });
 });

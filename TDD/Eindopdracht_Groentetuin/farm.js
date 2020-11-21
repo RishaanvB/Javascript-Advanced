@@ -70,14 +70,13 @@ const getCostsForCrop = (input) => {
 
 const getRevenueForCrop = (input, factor) => {
     let plantYield = input.crop.yield
+    let salePrice = input.crop.salePrice
+    let cropAmount = input.numCrops
 
     if (factor === undefined) {
-        let salePrice = input.crop.salePrice
-        let cropAmount = input.numCrops
         let totalYield = (plantYield * cropAmount)
         let revenue = (salePrice * totalYield)
         return revenue
-
     }
     else {
         let growthFactorArray = []
@@ -88,30 +87,23 @@ const getRevenueForCrop = (input, factor) => {
         const reducer = (acc, val) => acc * val;
         // multiplies array of growthfactor and multiplies by plantYield
         growthFactor = growthFactorArray.reduce(reducer)
-        console.log("logs growthfactor--->", growthFactor);
-
-        console.log("logs plantYield with external factors",plantYield);
-        let salePrice = input.crop.salePrice
-        let cropAmount = input.numCrops
         let totalYield = (plantYield * cropAmount * growthFactor)
-        console.log("logs totalYield with external factors",totalYield);
-
         let revenue = (salePrice * totalYield)
-       
-        
         return revenue
-        // return totalYieldforCrop
     }
-
-
-
 }
 
 // external factors do NOT  affect getCostsforCrop
 // external factors DO affect getRevenueforCrop, so first update getRevenueForCrop???
-const getProfitForCrop = (input) => {
-    let profit = getRevenueForCrop(input) - getCostsForCrop(input)
-    return profit
+const getProfitForCrop = (input, factor) => {
+    if (factor === undefined) {
+        let profit = getRevenueForCrop(input) - getCostsForCrop(input)
+        return profit
+    } else {
+        let profit = getRevenueForCrop(input, factor) - getCostsForCrop(input)
+        return profit
+    }
+
 
 }
 
