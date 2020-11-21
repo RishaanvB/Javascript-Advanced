@@ -10,7 +10,6 @@ const getYieldForPlant = (crop, factor) => {
             growthFactorArray.push((crop.factors[key][value] + 100) / 100)
         }
         const reducer = (acc, val) => acc * val;
-        // multiplies array of growthfactor and multiplies by plantYield
         growthFactor = growthFactorArray.reduce(reducer)
         let plantYield = crop.yield
         let totalYield = plantYield * growthFactor
@@ -80,12 +79,10 @@ const getRevenueForCrop = (input, factor) => {
     }
     else {
         let growthFactorArray = []
-        // calculates growthfactor for each of the given external factors in factor parameter, puts in array
         for (const [key, value] of Object.entries(factor)) {
             growthFactorArray.push((input.crop.factors[key][value] + 100) / 100)
         }
         const reducer = (acc, val) => acc * val;
-        // multiplies array of growthfactor and multiplies by plantYield
         growthFactor = growthFactorArray.reduce(reducer)
         let totalYield = (plantYield * cropAmount * growthFactor)
         let revenue = (salePrice * totalYield)
@@ -94,7 +91,6 @@ const getRevenueForCrop = (input, factor) => {
 }
 
 // external factors do NOT  affect getCostsforCrop
-// external factors DO affect getRevenueforCrop, so first update getRevenueForCrop???
 const getProfitForCrop = (input, factor) => {
     if (factor === undefined) {
         let profit = getRevenueForCrop(input) - getCostsForCrop(input)
@@ -103,16 +99,11 @@ const getProfitForCrop = (input, factor) => {
         let profit = getRevenueForCrop(input, factor) - getCostsForCrop(input)
         return profit
     }
-
-
 }
 
-// bereken de winst voor meerdere crops (zonder omgevingsfactoren): getTotalProfit
-
 const getTotalProfit = ({ crops }, factor) => {
+    let newArray = []
     if (factor === undefined) {
-
-        let newArray = []
         crops.forEach(crop => {
             newArray.push(getProfitForCrop(crop))
         });
@@ -121,14 +112,12 @@ const getTotalProfit = ({ crops }, factor) => {
         return totalYield
 
     } else {
-        let newArray = []
         crops.forEach(crop => {
             newArray.push(getProfitForCrop(crop, factor))
         });
         const reducer = (acc, val) => acc + val;
         let totalYield = newArray.reduce(reducer)
         return totalYield
-
     }
 
 }

@@ -259,7 +259,6 @@ describe('getProfitForCrop ', () => {
             wind: "high",
 
         };
-
         expect(getProfitForCrop(input, environmentFactors)).toBe(130);
 
     });
@@ -295,7 +294,7 @@ describe("getTotalProfit", () => {
             { crop: pumpkin, numCrops: 2 },
         ];
         expect(getProfitForCrop(crops[0])).toBe(5);
- expect(getProfitForCrop(crops[1])).toBe(36);
+        expect(getProfitForCrop(crops[1])).toBe(36);
         expect(getTotalProfit({ crops })).toBe(41);
     });
 
@@ -360,7 +359,6 @@ describe("getTotalProfit", () => {
 
         expect(getProfitForCrop(crops[0], environmentFactors)).toBe(65);
         expect(getProfitForCrop(crops[1], environmentFactors)).toBe(96.8);
-
         expect(getTotalProfit({ crops }, environmentFactors)).toBe(161.8);
     });
 
