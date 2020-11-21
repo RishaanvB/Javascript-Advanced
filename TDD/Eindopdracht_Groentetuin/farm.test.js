@@ -33,31 +33,31 @@ describe("getYieldForPlant", () => {
             },
         },
     };
-  
+
 
 
     test("Get yield for plant with no environment factors", () => {
         expect(getYieldForPlant(corn)).toBe(30);
     });
 
-    
+
 
     test("Get yield for plant with external sun/wind factors", () => {
         const environmentFactorsA = { //yield is 30
             sun: "high", //50
             wind: "high", //100
-// 30 * 1.5* 2 = 90
+            // 30 * 1.5* 2 = 90
         };
         const environmentFactorsB = {
             sun: "low", //-50
             wind: "low", //10
-//30 *0.5*1.1 = 16.5
+            //30 *0.5*1.1 = 16.5
         };
         const environmentFactorsC = {
             sun: "medium", //0
             wind: "low", //10
             rain: "medium" //-70
-//30*1*1.1*0.3 = 9.9
+            //30*1*1.1*0.3 = 9.9
         };
         expect(getYieldForPlant(corn, environmentFactorsA)).toBe(90);
         expect(getYieldForPlant(corn, environmentFactorsB)).toBe(16.5);
@@ -82,18 +82,30 @@ describe("getYieldForCrop", () => {
         const corn = {
             name: "corn",
             yield: 3,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: 10,
+                    medium: 50,
+                    high: 100,
+                },
+            },
         };
         const input = {
-            crop: corn,
+            crop: corn, 
             numCrops: 10,
         };
-        const environmentFactors = { 
-            sun: "high", //50
-            wind: "high", //100
+        const environmentFactors = {
+            sun: "high", 
+            wind: "high", 
 
         };
 
-        expect(getCostsForCrop(input, environmentFactors)).toBe(90);
+        expect(getYieldForCrop(input, environmentFactors)).toBe(90);
 
     });
 
@@ -142,7 +154,7 @@ describe('getCostsForCrop ', () => {
         expect(getCostsForCrop(input)).toBe(50);
 
     });
-    
+
 });
 
 
