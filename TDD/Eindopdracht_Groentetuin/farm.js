@@ -25,6 +25,7 @@ const getYieldForPlant = (crop, factor) => {
 const getYieldForCrop = (crop) => {
     let plantYield = crop.crop.yield
     let cropAmount = crop.numCrops;
+   
     return (plantYield * cropAmount)
 }
 

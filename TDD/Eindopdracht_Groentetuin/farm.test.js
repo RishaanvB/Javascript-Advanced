@@ -77,6 +77,27 @@ describe("getYieldForCrop", () => {
         };
         expect(getYieldForCrop(input)).toBe(30);
     });
+
+    test('Calculate yield for single crop with external factors', () => {
+        const corn = {
+            name: "corn",
+            yield: 3,
+        };
+        const input = {
+            crop: corn,
+            numCrops: 10,
+        };
+        const environmentFactors = { 
+            sun: "high", //50
+            wind: "high", //100
+
+        };
+
+        expect(getCostsForCrop(input, environmentFactors)).toBe(90);
+
+    });
+
+
 });
 
 describe("getTotalYield", () => {
@@ -121,6 +142,7 @@ describe('getCostsForCrop ', () => {
         expect(getCostsForCrop(input)).toBe(50);
 
     });
+    
 });
 
 
