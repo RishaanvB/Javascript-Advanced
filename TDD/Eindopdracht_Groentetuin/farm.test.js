@@ -259,7 +259,7 @@ describe('getProfitForCrop ', () => {
             wind: "high",
 
         };
-        
+
         expect(getProfitForCrop(input, environmentFactors)).toBe(130);
 
     });
@@ -295,9 +295,79 @@ describe("getTotalProfit", () => {
             { crop: pumpkin, numCrops: 2 },
         ];
         expect(getProfitForCrop(crops[0])).toBe(5);
+
         expect(getProfitForCrop(crops[1])).toBe(36);
         expect(getTotalProfit({ crops })).toBe(41);
     });
 
+    test("Calculate total profit with multiple crops AND with external factors", () => {
+
+
+
+
+
+        const corn = {
+            name: "corn",
+            yield: 3,
+            factors: {
+                sun: {
+                    low: -50,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: 10,
+                    medium: 50,
+                    high: 100,
+                },
+            },
+            salePrice: 2,
+            seedCosts: 5,
+        };
+
+        const pumpkin = {
+            name: "pumpkin",
+            yield: 4,
+            factors: {
+                sun: {
+                    low: -20,
+                    medium: 25,
+                    high: 40,
+                },
+                wind: {
+                    low: -25,
+                    medium: 60,
+                    high: 80,
+                },
+            },
+            salePrice: 5,
+            seedCosts: 2,
+        };
+        const crops = [
+            { crop: corn, numCrops: 5 },
+            { crop: pumpkin, numCrops: 2 },
+        ];
+
+        const environmentFactors = {
+            sun: "high",
+            wind: "high",
+
+        };
+        // ====CORN====  
+        // revenue  = salePrice * yield(with factor) * numCrops = 2 * 9 * 5 =90
+        // costs = seedCosts * numCrops = 5 * numCrops = 5 * 5 = 25
+        // profit = revenue -costs = 90 -25 =65
+
+
+        // ====PUMPKIN====  
+        // revenue  = salePrice  * yield(with factor) * numCrops = 5 * 10.08 * 2 = 100.8
+        // costs = seedCosts * numCrops =  2 * 2 = 4
+        // profit = revenue -costs = 100.8 - 4 =96.8
+
+        expect(getProfitForCrop(crops[0], environmentFactors)).toBe(65);
+        expect(getProfitForCrop(crops[1], environmentFactors)).toBe(96.8);
+
+        expect(getTotalProfit({ crops }, environmentFactors)).toBe(161.8);
+    });
 
 });
