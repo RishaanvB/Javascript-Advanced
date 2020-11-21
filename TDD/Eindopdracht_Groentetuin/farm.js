@@ -2,56 +2,23 @@ const getYieldForPlant = (crop, factor) => {
     if (factor === undefined) {
         let totalYield = crop.yield
         return totalYield
-    } else {
-
-        // let exFactorArray = Object.entries(factor)
-
-        let cropArray = (Object.entries(crop));
-        // console.log(cropArray[2]);
+    }
+    else {
         let growthFactorArray = []
+        // calculates growthfactor for each of the given external factors in factor parameter, puts in array
         for (const [key, value] of Object.entries(factor)) {
-            // console.log(key);
-            // console.log("logs exfactor array--->", exFactorArray);
-            // console.log("logs cropfactor array--->", crop.factors);
-            console.log("logs crop factors key", (crop.factors[key][value] + 100) / 100);
             growthFactorArray.push((crop.factors[key][value] + 100) / 100)
-            // values are in 100
-            // get all crop.factors[key][value]);plus 100  then divide by 100, and reduce
-            // gets growthfactor eg: values: 100, -50 == 100+-50 == 50/100=0.5
-            // eg.: values 100, -50, 50 == 100+-50+50 == 100 =1.0 
-            console.log("logs growthfactor for all externals", growthFactorArray);
-           
-
         }
         const reducer = (acc, val) => acc * val;
+        // multiplies array of growthfactor and multiplies by plantYield
         growthFactor = growthFactorArray.reduce(reducer)
         let plantYield = crop.yield
         let totalYield = plantYield * growthFactor
         return totalYield
     }
 }
-// console.log("logs exFactor------------>>>", exFactorArray);
-// exFactorArray.forEach(factor=>{
-//     console.log(factor);
-// })
-
-// let cropFactorArray = [];
-// for (const [key, value] of Object.entries(crop)) {
-//     cropFactorArray.push(key, value);
-// }
-// console.log("logs cropFactor------------>>>", cropFactorArray);
-// console.log(cropFactorArray.factors[0]);
 
 
-
-
-
-
-// let extFactor = factor.sun
-// let cropFactor = crop.factors.sun[extFactor]
-// let growthPercentage = (100 + cropFactor) / 100
-// let totalYield = crop.yield * growthPercentage
-// return totalYield
 
 
 
