@@ -92,34 +92,19 @@ const getRevenueForCrop = (input, factor) => {
 
 // external factors do NOT  affect getCostsforCrop
 const getProfitForCrop = (input, factor) => {
-    if (factor === undefined) {
-        let profit = getRevenueForCrop(input) - getCostsForCrop(input)
-        return profit
-    } else {
-        let profit = getRevenueForCrop(input, factor) - getCostsForCrop(input)
-        return profit
-    }
+    let profit = getRevenueForCrop(input, factor) - getCostsForCrop(input)
+    return profit
+
 }
 
 const getTotalProfit = ({ crops }, factor) => {
     let newArray = []
-    if (factor === undefined) {
-        crops.forEach(crop => {
-            newArray.push(getProfitForCrop(crop))
-        });
-        const reducer = (acc, val) => acc + val;
-        let totalYield = newArray.reduce(reducer)
-        return totalYield
-
-    } else {
-        crops.forEach(crop => {
-            newArray.push(getProfitForCrop(crop, factor))
-        });
-        const reducer = (acc, val) => acc + val;
-        let totalYield = newArray.reduce(reducer)
-        return totalYield
-    }
-
+    crops.forEach(crop => {
+        newArray.push(getProfitForCrop(crop, factor))
+    });
+    const reducer = (acc, val) => acc + val;
+    let totalYield = newArray.reduce(reducer)
+    return totalYield
 }
 module.exports = {
     getYieldForPlant: getYieldForPlant,
