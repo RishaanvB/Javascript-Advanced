@@ -1,29 +1,23 @@
-import React, { Component } from "react";
-import ListItem from "./ListItem"
+import React from "react";
+import ListItem from "./ListItem";
 
-class List extends Component {
-    constructor() {
-        super();
-        this.state = {
+function List(props) {
+    console.log(props, "loggin props in List.js")
+    console.log(props.items, "loggin props.items in List.js")
 
-        };
-    };
+    // props.items.map(item=> console.log(item.title, "loggin--> props.items.map(item=>  item.title) in List.js"))
+    const groceryItem = props.items.map(item => <ListItem item={item} grocery={item.title} /* key={item.id} */ onGroceryClick={props.onGroceryClick} />)
 
-    render() {
-        return (
-            <ul>
-                <ListItem title="Boter"/>
-                <ListItem title="Kaas"/>
-                <ListItem title="Eieren"/>
-                <ListItem title="Cornflakes"/>
-            </ul>
-            
-            
-        )
-    };
+    return (
+        <ul>
+            {groceryItem}
+        </ul>
 
 
+    );
 };
+
+
 
 
 

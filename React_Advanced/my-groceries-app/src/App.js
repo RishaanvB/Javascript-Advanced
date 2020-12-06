@@ -1,12 +1,14 @@
 import './App.css';
-import List from "./components/List";
+import Container from "./components/Container";
 
 function App() {
   return (
-    
-    <List />
-  
-    );
+
+    <Container />
+
+
+
+  );
 }
 
 export default App;
