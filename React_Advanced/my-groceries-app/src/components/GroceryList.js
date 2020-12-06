@@ -4,12 +4,16 @@ import List from "./List";
 function GroceryList(props) {
 
 
-
+// console.log("loggin grocerylistitems-->",props.groceryListItems)
+// console.log("loggin key-->",props.groceryListItems.id)
 
 
     return (
         <div >
-            <List items={props.groceryListItems} onGroceryClick={props.onGroceryClick} />
+            <List
+                onGroceryClick={props.onGroceryClick}
+                items={props.groceryListItems}
+            />
 
         </div>
     )

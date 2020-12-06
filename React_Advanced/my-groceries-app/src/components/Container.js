@@ -23,12 +23,14 @@ class Container extends Component {
     };
 
     handleOnClickGrocery(event) {
-        const groceryItem = event.target.getAttribute("value");
+        // console.log(event)
         this.setState(prevState => {
+            const groceryItem = event.target.getAttribute("value");
+            const groceryID = prevState.shoppingListItems.length + 1;
             // console.log("loggin prevState", prevState)
             // console.log("loggin prevState.shoppingListItems", prevState.shoppingListItems)
             const newList =
-                prevState.shoppingListItems.concat({ id: 1, title: groceryItem });
+                prevState.shoppingListItems.concat({ id: groceryID, title: groceryItem });
             return {
                 shoppingListItems: newList
             };
@@ -46,8 +48,12 @@ class Container extends Component {
                     <GroceryList
                         onGroceryClick={this.handleOnClickGrocery}
                         groceryListItems={this.state.groceryItems}
-                        key={this.state.groceryItems.id}
-                        value={this.state.groceryItems.title}
+                    // key={this.state.groceryItems.id}
+                    // id={this.state.groceryItems.id}
+                    // value={this.state.groceryItems.title}
+
+
+                    // value={this.state.groceryItems.title}
                     />
 
                 </div>
