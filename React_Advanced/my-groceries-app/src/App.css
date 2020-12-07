@@ -3,8 +3,48 @@
   justify-content: space-evenly;
 }
 
+li{
+  text-transform: capitalize;
+}
 
 li:hover{
-  color: grey;
+  color: rgb(39, 37, 37);
   cursor: pointer;
+}
+
+.shoppingcart li{
+  background-color: grey;
+  padding: 10px;
+  list-style-type:  none;
+}
+
+
+.grocerylist li{
+  background-color: grey;
+  padding: 10px;
+  list-style-type:  none;
+}
+
+.shoppingcart li:nth-child(even){
+  background-color: rgb(167, 87, 87);
+}
+
+.shoppingcart li:nth-child(odd){
+  background-color: rgb(199, 136, 136);
+}
+
+.shoppingcart li:hover{
+  background-color:  rgb(175, 150, 150);
+}
+
+.grocerylist li:nth-child(even){
+  background-color: rgb(32, 57, 94);
+}
+
+.grocerylist li:nth-child(odd){
+  background-color: rgb(70, 105, 158);
+}
+
+.grocerylist li:hover{
+  background-color:  rgb(170, 191, 238);
 }

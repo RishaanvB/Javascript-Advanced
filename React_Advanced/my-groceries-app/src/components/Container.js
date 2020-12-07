@@ -14,28 +14,53 @@ class Container extends Component {
                 { id: 4, title: "Cornflakes" }
             ],
             shoppingListItems: [
-                { id: 1, title: "Melk" },
-                { id: 2, title: "Vlaflip" },
-
+                { id: 1, title: "Pannenkoek" },
+                { id: 2, title: "Fristi" },
             ],
         };
         this.handleOnClickGrocery = this.handleOnClickGrocery.bind(this);
+        this.handleOnEmptyCart = this.handleOnEmptyCart.bind(this);
+        this.handleOnAddGrocery = this.handleOnAddGrocery.bind(this);
+
+
     };
 
-    handleOnClickGrocery(event) {
-        // console.log(event)
+    handleOnAddGrocery(event) {
+
+        // console.log("adding grocery from Container", event.target.value);
+        // console.log("adding grocery from Container",typeof event.target.value);
+        // console.log("adding grocery from Container", event.target.value.length);
+
+        // event.target.value.length < 1 ? console.log("is less than 0"))
+
         this.setState(prevState => {
-            const groceryItem = event.target.getAttribute("value");
-            const groceryID = prevState.shoppingListItems.length + 1;
-            // console.log("loggin prevState", prevState)
-            // console.log("loggin prevState.shoppingListItems", prevState.shoppingListItems)
-            const newList =
+            let newGrocery = event.target.value
+            let newID = prevState.groceryItems.length + 1
+            let newList =
+                prevState.groceryItems.concat({ id: newID, title: newGrocery });
+            return {
+                groceryItems: newList
+            };
+        });
+    };
+
+
+    handleOnClickGrocery(event) {
+        this.setState(prevState => {
+            let groceryItem = event.target.getAttribute("value");
+            let groceryID = prevState.shoppingListItems.length + 1;
+            let newList =
                 prevState.shoppingListItems.concat({ id: groceryID, title: groceryItem });
             return {
                 shoppingListItems: newList
             };
-
         });
+    };
+
+    handleOnEmptyCart() {
+        this.setState(
+            { shoppingListItems: [] }
+        );
     };
 
 
@@ -48,6 +73,7 @@ class Container extends Component {
                     <GroceryList
                         onGroceryClick={this.handleOnClickGrocery}
                         groceryListItems={this.state.groceryItems}
+                        onAddGrocery={this.handleOnAddGrocery}
                     // key={this.state.groceryItems.id}
                     // id={this.state.groceryItems.id}
                     // value={this.state.groceryItems.title}
@@ -60,10 +86,12 @@ class Container extends Component {
                 <div>
 
                     <h1>Shopping Cart</h1>
+
                     <ShoppingCart
                         shoppingCartItems={this.state.shoppingListItems}
                         key={this.state.shoppingListItems.id}
                         value={this.state.shoppingListItems.title}
+                        onEmptyCart={this.handleOnEmptyCart}
                     />
 
                 </div>
