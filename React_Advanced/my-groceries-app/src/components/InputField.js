@@ -9,7 +9,7 @@ const InputField = (props) => {
 
     const handleChange = (event) => {
         // event.preventDefault();
-        console.log(event.target)
+
         setInputValue(event.target.value);
     };
 
@@ -19,25 +19,25 @@ const InputField = (props) => {
 
 
 
-
     return (
         <div>
-            <input
-                required
-                onChange={handleChange}
-                type="text"
-                value={inputValue}>
-            </input>
-            <button
-                onClick={props.onAddGrocery}
-
-                name="button"
-                value={inputValue}
-            >
-                Voeg toe
+            <form onSubmit={props.onAddGrocery}>
+                <input
+                    required
+                    onChange={handleChange}
+                    type="text"
+                    value={inputValue}>
+                </input>
+                <button
+                    onClick={props.onAddGrocery}
+                    type="submit"
+                    name="button"
+                    value={inputValue}
+                >
+                    Voeg toe
                 </button>
+            </form>
         </div>
-
     )
 }
 

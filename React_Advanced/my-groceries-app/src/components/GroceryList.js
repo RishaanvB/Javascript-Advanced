@@ -18,7 +18,7 @@ function GroceryList(props) {
             />
             <List
                 onGroceryClick={props.onGroceryClick}
-                items={props.groceryListItems}
+                listItems={props.listItems}
             />
 
         </div>

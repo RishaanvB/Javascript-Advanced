@@ -14,24 +14,46 @@ class Container extends Component {
                 { id: 4, title: "Cornflakes" }
             ],
             shoppingListItems: [
-                { id: 1, title: "Pannenkoek" },
-                { id: 2, title: "Fristi" },
+                { id: 1, title: "Pannenkoek", amount: 4 },
+                { id: 2, title: "Fristi", amount: 2 },
             ],
         };
-        this.handleOnClickGrocery = this.handleOnClickGrocery.bind(this);
+        this.handleOnAddGroceryToCart = this.handleOnAddGroceryToCart.bind(this);
         this.handleOnEmptyCart = this.handleOnEmptyCart.bind(this);
         this.handleOnAddGrocery = this.handleOnAddGrocery.bind(this);
-
+        this.addAmountToItem = this.addAmountToItem.bind(this);
+        this.handleClickGroceryItem = this.handleClickGroceryItem.bind(this);
 
     };
 
+
+    addAmountToItem = itemTitle => {
+        const shoppingList = [...this.state.shoppingListItems];
+        const newList = shoppingList.map(shoppingItem => {
+          if (shoppingItem.title === itemTitle) {
+            shoppingItem.amount++;
+          }
+          return shoppingItem;
+        });
+        this.setState({ shoppingListItems: newList });
+      };
+
+       handleClickGroceryItem = event => {
+        const clickedItem = event.target.getAttribute("value");
+        const currentShoppingList = this.state.shoppingListItems;
+
+        const shoppingListItem = currentShoppingList.filter(
+            
+          item => item.title === clickedItem
+        );
+        console.log(shoppingListItem, "shoppinglistitem")
+        shoppingListItem.length === 0
+          ? this.handleOnAddGroceryToCart(clickedItem)
+          : this.addAmountToItem(clickedItem);
+      };
+
     handleOnAddGrocery(event) {
-
-        // console.log("adding grocery from Container", event.target.value);
-        // console.log("adding grocery from Container",typeof event.target.value);
-        // console.log("adding grocery from Container", event.target.value.length);
-
-        // event.target.value.length < 1 ? console.log("is less than 0"))
+        event.preventDefault()
 
         this.setState(prevState => {
             let newGrocery = event.target.value
@@ -43,19 +65,23 @@ class Container extends Component {
             };
         });
     };
+    
+  
 
 
-    handleOnClickGrocery(event) {
+    handleOnAddGroceryToCart(event) {
+       console.log(event)
         this.setState(prevState => {
-            let groceryItem = event.target.getAttribute("value");
+            let groceryItem = event;
             let groceryID = prevState.shoppingListItems.length + 1;
             let newList =
-                prevState.shoppingListItems.concat({ id: groceryID, title: groceryItem });
+                prevState.shoppingListItems.concat({ id: groceryID, title: groceryItem, amount: 1 });
             return {
                 shoppingListItems: newList
-            };
-        });
-    };
+            }
+        })
+
+    }
 
     handleOnEmptyCart() {
         this.setState(
@@ -65,42 +91,35 @@ class Container extends Component {
 
 
     render() {
-        // const groceryItem = this.state.groceryItems.map(item => <GroceryList item={item} />)
+
+
         return (
             <div className="container">
                 <div>
+
                     <h1>Grocery List</h1>
                     <GroceryList
-                        onGroceryClick={this.handleOnClickGrocery}
-                        groceryListItems={this.state.groceryItems}
+                        onGroceryClick={this.handleClickGroceryItem}
+                        listItems={this.state.groceryItems}
                         onAddGrocery={this.handleOnAddGrocery}
-                    // key={this.state.groceryItems.id}
-                    // id={this.state.groceryItems.id}
-                    // value={this.state.groceryItems.title}
-
-
-                    // value={this.state.groceryItems.title}
                     />
 
                 </div>
                 <div>
-
                     <h1>Shopping Cart</h1>
-
                     <ShoppingCart
-                        shoppingCartItems={this.state.shoppingListItems}
+                        listItems={this.state.shoppingListItems}
                         key={this.state.shoppingListItems.id}
                         value={this.state.shoppingListItems.title}
                         onEmptyCart={this.handleOnEmptyCart}
                     />
-
                 </div>
             </div>
         )
     }
 
 
-};
+}
 
 
 export default Container
