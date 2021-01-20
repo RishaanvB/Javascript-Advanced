@@ -1013,7 +1013,7 @@ const generateRandomAppointment = () => ({
   time: getRandomTime(),
   patient: getRandomName(),
   dentist: getRandomName(),
-  assistant: getRandomName(),
+  assistant: getRandomName(),   
 });
 
 const generateRandomAppointments = num =>

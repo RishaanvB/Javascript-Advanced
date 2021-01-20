@@ -8,7 +8,9 @@ import Day from "./Day";
 
 import generateRandomAppointments from "./utils";
 
-const appointments = generateRandomAppointments(70);
+// sorted by time
+
+const appointments = generateRandomAppointments(70).sort((a, b)=> a.time - b.time);
 
 const App = () => (
   <Router>

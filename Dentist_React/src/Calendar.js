@@ -1,7 +1,6 @@
 import React from "react";
 import "./Calendar.css";
 import DayInMonth from "./DayInMonth";
-
 const divideByDay = appointments => {
   const appointmentsByDay = {};
   appointments.forEach(appointment => {
