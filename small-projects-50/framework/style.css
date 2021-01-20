@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+  /* margin: 0 ; */
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: rgb(238, 238, 238);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  width: 90vw;
+}
+
+.panel {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 1vw;
+  cursor: pointer;
+  flex: 0.5;
+  margin: 10px;
+  position: relative;
+  transition: flex 0.4s ease-in;
+}
+
+.panel h3 {
+  font-size: 2rem;
+  position: absolute;
+  left: 25px;
+  bottom: 20px;
+  opacity: 0;
+}
+
+.panel.active {
+  flex: 4;
+}
+.panel.active h3 {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+.panel i {
+  opacity: 0;
+}
+
+.panel.active i {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+
+.fas {
+  position: absolute;
+  font-size: 5rem;
+  color: white;
+  transition: scale 1s ease-in;
+  transform: scale(1);
+  opacity: 1;
+}
+.fa-arrow-left {
+  top: 45%;
+  left: 20px;
+}
+.fa-arrow-right {
+  top: 45%;
+  right: 20px;
+}
+
+@keyframes arrow-right {
+  from {
+    right: 20px;
+  }
+  to {
+    right: 10px;
+  }
+}
+
+@keyframes arrow-left {
+  from {
+    left: 20px;
+  }
+  to {
+    left: 10px;
+  }
+}
+
+.fa-arrow-right:hover {
+  animation-name: arrow-right;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.fa-arrow-left:hover {
+  animation-name: arrow-left;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@media (max-width: 700px) {
+  @keyframes arrow-top {
+    from {
+      top: 0%;
+    }
+    to {
+      top: -2%;
+    }
+  }
+  @keyframes arrow-bottom {
+    from {
+      top: 85%;
+    }
+    to {
+      top: 87%;
+    }
+  }
+
+  .container {
+    flex-direction: column;
+    height: 90vh;
+  }
+  .fa-arrow-left {
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg) scale(0.7);
+  }
+  .fa-arrow-right {
+    top: 85%;
+    right: 50%;
+    transform: translateX(50%) rotate(90deg) scale(0.7);
+  }
+  .fa-arrow-left:hover {
+    animation-name: arrow-top;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+}
+
+.fa-arrow-right:hover {
+  animation-name: arrow-bottom;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
