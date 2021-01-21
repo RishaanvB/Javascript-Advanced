@@ -1,18 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Home from "./Home";
 import Calendar from "./Calendar";
 import Day from "./Day";
+// import appointments from "./Appointments";
 
-import generateRandomAppointments from "./utils";
+import startingState from "./utils";
 
-// sorted by time
 
-const appointments = generateRandomAppointments(70).sort((a, b)=> a.time - b.time);
 
-const App = () => (
+
+const App = () => {
+  const [appointments, setAppointments] = useState(startingState);
+  console.log(appointments, "appointments in App.js")
+
+
+  return(
   <Router>
     <div>
       <nav>
@@ -34,7 +39,7 @@ const App = () => (
             <Calendar appointments={appointments} />
           </Route>
           <Route path="/day">
-            <Day appointments={appointments.filter(app => app.day === 1)} />
+            <Day appointments={appointments.filter((app) => app.day === 1)} />
           </Route>
           <Route path="/">
             <Home />
@@ -43,5 +48,8 @@ const App = () => (
       </main>
     </div>
   </Router>
-);
+
+
+)
+};
 export default App;
