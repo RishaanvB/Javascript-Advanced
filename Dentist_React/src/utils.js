@@ -2,6 +2,7 @@ import dentists from "./json-data/dentists.json";
 import assistants from "./json-data/assistants.json";
 import patients from "./json-data/patients.json";
 
+
 const getRandomEmployee = (employee,num) => {
   
   let person = employee[Math.floor(Math.random() * num)];
