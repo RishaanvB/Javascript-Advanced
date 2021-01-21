@@ -144,11 +144,11 @@ body {
     animation-iteration-count: infinite;
     animation-direction: alternate;
   }
+  .fa-arrow-right:hover {
+    animation-name: arrow-bottom;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
 }
 
-.fa-arrow-right:hover {
-  animation-name: arrow-bottom;
-  animation-duration: 0.5s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
